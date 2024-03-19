@@ -21,5 +21,15 @@ class ViewController2: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "ViewController 2"
+        sendMessageToVC1()
+    }
+    
+    func sendMessageToVC1() {
+        vc2View.button.addTarget(self, action: #selector(didTapButtonSendMessageToVC1), for: .touchUpInside)
+    }
+    
+    @objc func didTapButtonSendMessageToVC1() {
+        delegate?.updateLabel(value: vc2View.textfield.text ?? "")
+        navigationController?.popToRootViewController(animated: true)
     }
 }

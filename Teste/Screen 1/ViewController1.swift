@@ -20,7 +20,6 @@ class ViewController1: UIViewController {
         super.viewDidLoad()
         title = "ViewController 1"
         addTargetToVC2()
-        
     }
     
     func addTargetToVC2() {
@@ -37,6 +36,5 @@ class ViewController1: UIViewController {
 extension ViewController1: VC2ViewDelegate {
     func updateLabel(value: String) {
         vc1View.label.text = value
-        navigationController?.popToRootViewController(animated: true)
     }
 }

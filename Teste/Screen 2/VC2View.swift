@@ -27,7 +27,6 @@ class VC2View: UIView {
         button.setTitle("Send Message to VC1", for: .normal)
         button.tintColor = .white
         button.backgroundColor = .systemBlue
-        button.addTarget(self, action: #selector(didTapButtonSendMessageToVC1), for: .touchUpInside)
         return button
     }()
     
@@ -38,10 +37,6 @@ class VC2View: UIView {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
-    }
-    
-    @objc func didTapButtonSendMessageToVC1() {
-        
     }
     
     private func setupView() {
