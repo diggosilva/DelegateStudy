@@ -8,11 +8,10 @@
 import UIKit
 
 protocol VC2ViewDelegate: AnyObject {
-    func sendMessageToVC1()
+    func updateLabel(value: String)
 }
 
 class VC2View: UIView {
-    weak var delegateVC2: VC2ViewDelegate?
     
     lazy var textfield: UITextField = {
         let textfield = UITextField()
@@ -42,7 +41,7 @@ class VC2View: UIView {
     }
     
     @objc func didTapButtonSendMessageToVC1() {
-        delegateVC2?.sendMessageToVC1()
+        
     }
     
     private func setupView() {

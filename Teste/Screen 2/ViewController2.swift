@@ -9,6 +9,8 @@ import UIKit
 
 class ViewController2: UIViewController {
     
+    weak var delegate: VC2ViewDelegate?
+    
     var vc2View = VC2View()
     
     override func loadView() {
@@ -20,5 +22,4 @@ class ViewController2: UIViewController {
         super.viewDidLoad()
         title = "ViewController 2"
     }
-    
 }

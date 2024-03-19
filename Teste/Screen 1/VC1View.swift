@@ -7,13 +7,7 @@
 
 import UIKit
 
-protocol VC1ViewDelegate: AnyObject {
-    func goToVC2()
-}
-
 class VC1View: UIView {
-    weak var delegateVC1: VC1ViewDelegate?
-    weak var delegateVC2: VC2ViewDelegate?
     
     lazy var label: UILabel = {
         let label = UILabel()
@@ -29,7 +23,6 @@ class VC1View: UIView {
         button.setTitle("Go To VC2", for: .normal)
         button.tintColor = .white
         button.backgroundColor = .systemBlue
-        button.addTarget(self, action: #selector(didTapButtonGoToVC2), for: .touchUpInside)
         return button
     }()
     
@@ -42,17 +35,12 @@ class VC1View: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    @objc func didTapButtonGoToVC2() {
-        delegateVC1?.goToVC2()
-    }
-    
     private func setupView() {
         setHierarchy()
         setConstraints()
     }
     
     private func setHierarchy () {
-        
         backgroundColor = .systemBackground
         addSubview(label)
         addSubview(button)

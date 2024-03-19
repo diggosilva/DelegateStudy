@@ -15,28 +15,28 @@ class ViewController1: UIViewController {
         super.loadView()
         view = vc1View
     }
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "ViewController 1"
-        setDelegateProtocol()
+        addTargetToVC2()
+        
     }
     
-    func setDelegateProtocol() {
-        vc1View.delegateVC1 = self
-        vc1View.delegateVC2 = self
+    func addTargetToVC2() {
+        vc1View.button.addTarget(self, action: #selector(didTapButtonGoToVC2), for: .touchUpInside)
     }
-}
-
-extension ViewController1: VC1ViewDelegate {
-    func goToVC2() {
-        navigationController?.pushViewController(ViewController2(), animated: true)
+    
+    @objc func didTapButtonGoToVC2() {
+        let vc2 = ViewController2()
+        vc2.delegate = self
+        navigationController?.pushViewController(vc2, animated: true)
     }
 }
 
 extension ViewController1: VC2ViewDelegate {
-    func sendMessageToVC1() {
-//        vc1View.label.text = vc1View.delegateVC2?.sendMessageToVC1()
+    func updateLabel(value: String) {
+        vc1View.label.text = value
         navigationController?.popToRootViewController(animated: true)
     }
 }
