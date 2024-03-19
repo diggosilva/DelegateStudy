@@ -7,9 +7,13 @@
 
 import UIKit
 
+protocol ViewController2Delegate: AnyObject {
+    func updateLabel(value: String)
+}
+
 class ViewController2: UIViewController {
     
-    weak var delegate: VC2ViewDelegate?
+    weak var delegate: ViewController2Delegate?
     
     var vc2View = VC2View()
     

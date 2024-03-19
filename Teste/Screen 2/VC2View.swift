@@ -7,10 +7,6 @@
 
 import UIKit
 
-protocol VC2ViewDelegate: AnyObject {
-    func updateLabel(value: String)
-}
-
 class VC2View: UIView {
     
     lazy var textfield: UITextField = {

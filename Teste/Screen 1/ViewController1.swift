@@ -33,7 +33,7 @@ class ViewController1: UIViewController {
     }
 }
 
-extension ViewController1: VC2ViewDelegate {
+extension ViewController1: ViewController2Delegate {
     func updateLabel(value: String) {
         vc1View.label.text = value
     }
